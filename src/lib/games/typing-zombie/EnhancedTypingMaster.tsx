@@ -1830,7 +1830,6 @@ export default function EnhancedTypingMaster() {
                 setShowMenu(true);
               }}
               className="mt-6 px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-xl transition-all"
-            ]
             >
               ← Back to Menu
             </button>
