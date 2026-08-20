@@ -1,0 +1,78 @@
+================================================================================
+                    MANUAL SETUP INSTRUCTIONS - READ THIS!
+================================================================================
+
+STEP 1: Extract the ZIP file to a folder (e.g., C:\games\my-games)
+
+STEP 2: Open Git Bash or Command Prompt in that folder
+
+STEP 3: Run these commands ONE BY ONE (copy-paste each line):
+
+--------------------------------------------------------------------------------
+COMMAND 1: Check if Node.js is installed
+--------------------------------------------------------------------------------
+    node --version
+
+    If you see a version number (like v20.x.x) - GOOD!
+    If you get an error - install Node.js from https://nodejs.org first
+
+--------------------------------------------------------------------------------
+COMMAND 2: Clean any failed installations
+--------------------------------------------------------------------------------
+    npm cache clean --force
+
+--------------------------------------------------------------------------------
+COMMAND 3: Install dependencies (THIS IS THE IMPORTANT ONE)
+--------------------------------------------------------------------------------
+    npm install
+
+    Wait 5-10 minutes for this to finish.
+    
+    IF THIS FAILS with "ECONNRESET" error, try:
+    
+    Option A: Use yarn instead
+        npm install -g yarn
+        yarn install
+    
+    Option B: Use different registry (if you're in China)
+        npm install --registry=https://registry.npmmirror.com
+    
+    Option C: Just keep trying (network might be unstable)
+        npm install
+        npm install
+        npm install  (try multiple times)
+
+--------------------------------------------------------------------------------
+COMMAND 4: Start the game
+--------------------------------------------------------------------------------
+    npm run dev
+
+    Then open your browser and go to: http://localhost:3000
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+PROBLEM: "npm is not recognized"
+SOLUTION: Install Node.js from https://nodejs.org , then restart Git Bash
+
+PROBLEM: "ECONNRESET" network error
+SOLUTION: Your internet disconnected during download. Try:
+          - Turn on VPN
+          - Use different network (mobile hotspot)
+          - Keep retrying: npm install
+
+PROBLEM: Port 3000 already in use
+SOLUTION: Close other programs using port 3000, or run:
+          npm run dev -- -p 3001
+          Then open: http://localhost:3001
+
+PROBLEM: TypeScript errors
+SOLUTION: Delete the .next folder and try again:
+          rmdir /s /q .next
+          npm run dev
+
+================================================================================
+GOOD LUCK! If all else fails, ask someone with good internet to run 
+"npm install" for you on their computer, then copy the whole folder back.
+================================================================================
