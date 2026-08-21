@@ -1996,7 +1996,7 @@ export default function ApocalypseTypingMaster() {
                   setShowMenu(true);
                 }}
                 className="w-full py-3 px-6 bg-gray-700 hover:bg-gray-600 text-white text-lg rounded-xl transition-all"
-              ]
+              >
               >
                 🏠 Main Menu
               </button>
@@ -2049,7 +2049,7 @@ export default function ApocalypseTypingMaster() {
                     setShowMenu(true);
                   }}
                   className="w-full py-3 px-6 bg-yellow-600 hover:bg-yellow-500 text-white text-xl font-bold rounded-xl transition-all"
-                ]
+                >
                 >
                   🏠 Return to Menu
                 </button>
