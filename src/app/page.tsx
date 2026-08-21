@@ -2,10 +2,13 @@
 
 import React, { useState } from 'react';
 import ChessMasterAcademy from './ChessAcademy';
+import ChessMasterAcademyNew from './ChessAcademyNew';
 import ZombieTypingMaster from '@/lib/games/typing-zombie/ZombieTypingMaster';
 import EnhancedTypingMaster from '@/lib/games/typing-zombie/EnhancedTypingMaster';
+import ApocalypseTypingMaster from '@/lib/games/typing-zombie/ApocalypseTypingMaster';
+import TypingApocalypse from '@/lib/games/typing-zombie/TypingApocalypse';
 
-type GameType = 'launcher' | 'chess' | 'zombie' | 'enhancedZombie';
+type GameType = 'launcher' | 'chess' | 'chessNew' | 'zombie' | 'enhancedZombie' | 'apocalypse' | 'typingApocalypse';
 
 export default function Home() {
   const [currentGame, setCurrentGame] = useState<GameType>('launcher');
@@ -20,6 +23,20 @@ export default function Home() {
           ← Back to Games
         </button>
         <ChessMasterAcademy />
+      </div>
+    );
+  }
+
+  if (currentGame === 'chessNew') {
+    return (
+      <div className="relative w-full h-screen overflow-auto">
+        <button
+          onClick={() => setCurrentGame('launcher')}
+          className="fixed top-4 left-4 z-50 px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 backdrop-blur-md rounded-lg text-white hover:from-blue-500 hover:to-indigo-500 transition flex items-center gap-2 shadow-lg shadow-blue-500/40 font-bold text-sm z-50"
+        >
+          ← Back to Games ✨
+        </button>
+        <ChessMasterAcademyNew />
       </div>
     );
   }
@@ -48,6 +65,34 @@ export default function Home() {
           ← Back to Games 🎮
         </button>
         <EnhancedTypingMaster />
+      </div>
+    );
+  }
+
+  if (currentGame === 'apocalypse') {
+    return (
+      <div className="relative">
+        <button
+          onClick={() => setCurrentGame('launcher')}
+          className="fixed top-4 left-4 z-50 px-4 py-2 bg-gradient-to-r from-red-700 via-orange-600 to-yellow-600 backdrop-blur-md rounded-lg text-white hover:from-red-600 hover:via-orange-500 hover:to-yellow-500 transition flex items-center gap-2 shadow-lg shadow-orange-500/40 font-bold text-sm"
+        >
+          ← Back to Games 🔥
+        </button>
+        <ApocalypseTypingMaster />
+      </div>
+    );
+  }
+
+  if (currentGame === 'typingApocalypse') {
+    return (
+      <div className="relative w-full h-screen">
+        <button
+          onClick={() => setCurrentGame('launcher')}
+          className="fixed top-4 left-4 z-50 px-4 py-2 bg-gradient-to-r from-green-600 to-emerald-600 backdrop-blur-md rounded-lg text-white hover:from-green-500 hover:to-emerald-500 transition flex items-center gap-2 shadow-lg shadow-green-500/40 font-bold text-sm"
+        >
+          ← Back to Games ✅
+        </button>
+        <TypingApocalypse />
       </div>
     );
   }
@@ -132,6 +177,67 @@ export default function Home() {
             <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl group-hover:bg-amber-500/20 transition-all duration-300" />
           </button>
 
+          {/* ✨ NEW! IMPROVED CHESS ACADEMY - Interactive Lessons & Real ELO */}
+          <button
+            onClick={() => setCurrentGame('chessNew')}
+            className="group relative bg-gradient-to-br from-blue-950/90 via-indigo-900/80 to-purple-900/80 backdrop-blur-sm rounded-3xl p-8 border-2 border-blue-500/50 hover:border-indigo-400/70 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/40 text-left overflow-hidden"
+          >
+            {/* Background glow effect */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10" />
+            
+            {/* Animated glow */}
+            <div className="absolute -top-10 -right-10 w-60 h-60 bg-blue-500/30 rounded-full blur-3xl animate-pulse" />
+            
+            <div className="relative z-10">
+              <div className="flex items-start justify-between mb-4">
+                <div>
+                  <h2 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 mb-2">
+                    ♔ CHESS ACADEMY 2.0 ✨
+                  </h2>
+                  <p class="text-sm text-indigo-300 font-semibold animate-pulse">
+                    🆕 INTERACTIVE LESSONS • REAL ELO • COUNTER-GAMBITS
+                  </p>
+                </div>
+                <span className="px-3 py-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full text-sm font-bold shadow-lg shadow-blue-500/50 animate-bounce">
+                  ✨ NEW!
+                </span>
+              </div>
+              
+              <p className="text-gray-200 mb-4 leading-relaxed">
+                <strong className="text-blue-300">COMPLETELY REBUILT!</strong> Interactive lessons with moving pieces on a real board, REAL ELO system based on game performance (not clicking!), advanced gambits with counter-gambits (King's Gambit, Evans Gambit + how to DEFEAT them!), and much more!
+              </p>
+
+              <div className="grid grid-cols-4 gap-2 mb-4 text-xs">
+                {['🎯 Moving Pieces', '📊 Real ELO', '⚔️ Counter-Gambits', '🧪 Quizzes'].map(feature => (
+                  <span key={feature} className="px-2 py-1 bg-black/40 rounded text-blue-200 border border-blue-500/20">
+                    {feature}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap gap-2 mb-4">
+                {['✅ Pieces MOVE during lessons', '✅ ELO changes by winning/losing', 
+                  '✅ King\'s Gambit + Falkbeer Counter', '✅ Evans Gambit + Decline plans',
+                  '✅ Sicilian Najdorf coverage', '✅ Quiz after each lesson',
+                  '✅ Achievement system', '✅ Progress tracking'].map(feature => (
+                  <span key={feature} className="px-2 py-1 bg-blue-500/20 rounded text-xs text-blue-300 border border-blue-500/30">
+                    {feature}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex items-center gap-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 font-bold text-lg">
+                🎮 PLAY NOW - LIKE CHESS.COM! →
+                <svg className="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </div>
+            </div>
+
+            {/* Decorative corner element */}
+            <div className="absolute bottom-0 right-0 w-40 h-40 bg-purple-500/20 rounded-full blur-2xl group-hover:bg-purple-500/30 transition-all duration-300" />
+          </button>
+
           {/* Enhanced Typing Master Card (NEW!) */}
           <button
             onClick={() => setCurrentGame('enhancedZombie')}
@@ -182,6 +288,129 @@ export default function Home() {
 
             {/* Decorative corner element */}
             <div className="absolute bottom-0 right-0 w-40 h-40 bg-purple-500/20 rounded-full blur-2xl group-hover:bg-purple-500/30 transition-all duration-300" />
+          </button>
+
+          {/* 🧟 APOCALYPSE TYPING MASTER - COMPLETE REWRITE (WORKING VERSION!) */}
+          <button
+            onClick={() => setCurrentGame('apocalypse')}
+            className="group relative bg-gradient-to-br from-red-950/90 via-orange-900/80 to-yellow-900/80 backdrop-blur-sm rounded-3xl p-8 border-2 border-red-500/50 hover:border-orange-400/70 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-red-500/40 text-left overflow-hidden md:col-span-2"
+          >
+            {/* Background glow effect */}
+            <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-orange-500/10" />
+            
+            {/* Animated fire glow */}
+            <div className="absolute -top-10 -left-10 w-60 h-60 bg-red-500/30 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute -bottom-10 -right-10 w-50 h-50 bg-orange-500/25 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+            
+            <div className="relative z-10">
+              <div className="flex items-start justify-between mb-4">
+                <div>
+                  <h2 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400 mb-2">
+                    🧟 APOCALYPSE TYPING MASTER 🔥
+                  </h2>
+                  <p class="text-sm text-orange-300 font-semibold animate-pulse">
+                    ⚠️ WORKING VERSION - ZOMBIES ACTUALLY DIE! ⚠️
+                  </p>
+                </div>
+                <span className="px-3 py-1 bg-gradient-to-r from-red-600 to-orange-600 text-white rounded-full text-sm font-bold shadow-lg shadow-red-500/50">
+                  🔥 PLAY THIS!
+                </span>
+              </div>
+              
+              <p className="text-gray-200 mb-4 leading-relaxed">
+                <strong className="text-red-300">COMPLETELY REWRITTEN!</strong> Working kill mechanics, 11 detailed scenes (Forest, Desert, Mall, Hospital, Lab, Highway, Village, School, Military, Sewer, Graveyard), multiple zombie types, stage progression, lives system, combos, and ACTUAL FUN GAMEPLAY!
+              </p>
+
+              <div className="grid grid-cols-5 gap-2 mb-4 text-xs">
+                {['🌲 Forest', '🏜️ Desert', '🏬 Mall', '🏥 Hospital', '🔬 Lab',
+                  '🛣️ Highway', '👻 Village', '🏫 School', '⚔️ Military', '🕸️ Graveyard'].map(scene => (
+                  <span key={scene} className="px-2 py-1 bg-black/40 rounded text-orange-200 border border-red-500/20">
+                    {scene}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap gap-2 mb-4">
+                {['✅ Zombies DIE when typed', '✅ Stage progression works', '✅ 11 unique scenes', 
+                  '✅ Lives system (3 lives)', '✅ Real combos & scoring', '✅ Multiple zombie types',
+                  '✅ Boss battles', '✅ Particle effects', '✅ Screen shake'].map(feature => (
+                  <span key={feature} className="px-2 py-1 bg-green-500/20 rounded text-xs text-green-300 border border-green-500/30">
+                    {feature}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex items-center gap-2 text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400 font-bold text-lg">
+                🎮 PLAY NOW - IT ACTUALLY WORKS! →
+                <svg className="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </div>
+            </div>
+
+            {/* Decorative corner element */}
+            <div className="absolute bottom-0 left-0 w-40 h-40 bg-orange-500/20 rounded-full blur-2xl group-hover:bg-orange-500/30 transition-all duration-300" />
+          </button>
+
+          {/* ✅ TYPING APOCALYPSE - NEW WORKING VERSION WITH PROPER KILL MECHANICS! */}
+          <button
+            onClick={() => setCurrentGame('typingApocalypse')}
+            className="group relative bg-gradient-to-br from-emerald-950/90 via-green-900/80 to-teal-900/80 backdrop-blur-sm rounded-3xl p-8 border-2 border-green-500/50 hover:border-emerald-400/70 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/40 text-left overflow-hidden md:col-span-2"
+          >
+            {/* Background glow effect */}
+            <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-teal-500/10" />
+            
+            {/* Animated glow */}
+            <div className="absolute -top-10 -right-10 w-60 h-60 bg-green-500/30 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute -bottom-10 -left-10 w-50 h-50 bg-teal-500/25 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+            
+            <div className="relative z-10">
+              <div className="flex items-start justify-between mb-4">
+                <div>
+                  <h2 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 mb-2">
+                    ⌨️ TYPING APOCALYPSE ✅
+                  </h2>
+                  <p class="text-sm text-emerald-300 font-semibold animate-pulse">
+                    🔥 NEW & WORKING - TYPE TO KILL ZOMBIES! 🔥
+                  </p>
+                </div>
+                <span className="px-3 py-1 bg-gradient-to-r from-green-600 to-teal-600 text-white rounded-full text-sm font-bold shadow-lg shadow-green-500/50">
+                  ✅ PLAY THIS!
+                </span>
+              </div>
+              
+              <p className="text-gray-200 mb-4 leading-relaxed">
+                <strong className="text-green-300">COMPLETELY REBUILT FROM SCRATCH!</strong> Working kill mechanics (zombies actually die when you type!), 5 detailed scenes (Hospital, Mall, Highway, Forest, Desert), lives system, combos, boss battles, stage progression - EVERYTHING WORKS!
+              </p>
+
+              <div className="grid grid-cols-5 gap-2 mb-4 text-xs">
+                {['🏥 Hospital', '🛒 Mall', '🛣️ Highway', '🌲 Forest', '🏜️ Desert'].map(scene => (
+                  <span key={scene} className="px-2 py-1 bg-black/40 rounded text-emerald-200 border border-green-500/20">
+                    {scene}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap gap-2 mb-4">
+                {['✅ Kill mechanics WORK', '✅ Stage progression', '✅ 5 unique scenes', 
+                  '✅ Lives system (3❤️)', '✅ Real combos & scoring', '✅ Boss battles',
+                  '✅ Particle effects', '✅ Screen shake', '✅ Multiple enemy types'].map(feature => (
+                  <span key={feature} className="px-2 py-1 bg-green-500/20 rounded text-xs text-green-300 border border-green-500/30">
+                    {feature}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex items-center gap-2 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-teal-400 font-bold text-lg">
+                🎮 PLAY NOW - IT ACTUALLY WORKS! →
+                <svg className="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </div>
+            </div>
+
+            {/* Decorative corner element */}
+            <div className="absolute bottom-0 right-0 w-40 h-40 bg-teal-500/20 rounded-full blur-2xl group-hover:bg-teal-500/30 transition-all duration-300" />
           </button>
         </div>
 
