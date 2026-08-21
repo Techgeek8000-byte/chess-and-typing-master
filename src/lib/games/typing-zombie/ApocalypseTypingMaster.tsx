@@ -1938,7 +1938,7 @@ export default function ApocalypseTypingMaster() {
                 setShowMenu(true);
               }}
               className="w-full py-3 px-6 bg-red-600 hover:bg-red-500 text-white rounded-xl transition-all"
-            ]
+            >
             >
               Quit to Menu
             </button>
