@@ -1889,7 +1889,6 @@ export default function ApocalypseTypingMaster() {
                 setShowMenu(true);
               }}
               className="mt-6 px-8 py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-xl font-semibold transition-all"
-            ]
             >
               ← Back to Menu
             </button>
