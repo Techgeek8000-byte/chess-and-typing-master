@@ -628,7 +628,7 @@ export const SCENES: Record<SceneType, SceneConfig> = {
   military: {
     id: 'military',
     name: 'Military Base',
-    description: 'They couldn't contain the outbreak',
+    description: 'They could not contain the outbreak',
     difficulty: 8,
     skyColor: '#1a1a2a',
     groundColor: '#3a3a3a',
