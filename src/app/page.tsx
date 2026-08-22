@@ -5,10 +5,9 @@ import ChessMasterAcademy from './ChessAcademy';
 import ChessMasterAcademyNew from './ChessAcademyNew';
 import ZombieTypingMaster from '@/lib/games/typing-zombie/ZombieTypingMaster';
 import EnhancedTypingMaster from '@/lib/games/typing-zombie/EnhancedTypingMaster';
-import ApocalypseTypingMaster from '@/lib/games/typing-zombie/ApocalypseTypingMaster';
 import TypingApocalypse from '@/lib/games/typing-zombie/TypingApocalypse';
 
-type GameType = 'launcher' | 'chess' | 'chessNew' | 'zombie' | 'enhancedZombie' | 'apocalypse' | 'typingApocalypse';
+type GameType = 'launcher' | 'chess' | 'chessNew' | 'zombie' | 'enhancedZombie' | 'typingApocalypse';
 
 export default function Home() {
   const [currentGame, setCurrentGame] = useState<GameType>('launcher');
@@ -65,20 +64,6 @@ export default function Home() {
           ← Back to Games 🎮
         </button>
         <EnhancedTypingMaster />
-      </div>
-    );
-  }
-
-  if (currentGame === 'apocalypse') {
-    return (
-      <div className="relative">
-        <button
-          onClick={() => setCurrentGame('launcher')}
-          className="fixed top-4 left-4 z-50 px-4 py-2 bg-gradient-to-r from-red-700 via-orange-600 to-yellow-600 backdrop-blur-md rounded-lg text-white hover:from-red-600 hover:via-orange-500 hover:to-yellow-500 transition flex items-center gap-2 shadow-lg shadow-orange-500/40 font-bold text-sm"
-        >
-          ← Back to Games 🔥
-        </button>
-        <ApocalypseTypingMaster />
       </div>
     );
   }
